@@ -43,15 +43,7 @@ export function Footer() {
               >
                 <Facebook className="h-4 w-4 text-[#364798]" />
               </Link>
-              <Link
-                href="https://linkedin.com/company/aura-asesoria-contable"
-                className="bg-[#a17fb8]/10 p-2 rounded-full hover:bg-[#a17fb8]/20 transition-colors"
-                aria-label="LinkedIn"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Linkedin className="h-4 w-4 text-[#364798]" />
-              </Link>
+              
             </div>
           </div>
 

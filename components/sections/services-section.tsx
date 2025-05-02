@@ -47,8 +47,7 @@ export function ServicesSection() {
       items: [
         {
           title: "Contabilidad general",
-          description:
-            "Registración de operaciones y gestión contable integral",
+          description: "Registración de operaciones y gestión contable integral",
           icon: BarChart3,
           gradient: "from-purple-600 to-indigo-700",
         },
@@ -235,14 +234,14 @@ export function ServicesSection() {
     <section
       ref={sectionRef}
       id="servicios"
-      className="py-24 md:py-32  bg-white  relative overflow-hidden border-t "
+      className="py-24 md:py-32 bg-white relative overflow-hidden "
     >
-      {/* Elementos decorativos mejorados */}
+      {/* Elementos decorativos
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -right-20 -top-20 w-[500px] h-[500px] bg-[#a17fb8]/10 rounded-full blur-3xl"></div>
         <div className="absolute left-0 bottom-0 w-[500px] h-[500px] bg-[#364798]/10 rounded-full blur-3xl"></div>
         <div className="absolute left-1/2 top-1/2 w-[400px] h-[400px] bg-gradient-to-r from-[#364798]/10 to-[#a17fb8]/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-      </div>
+      </div> */}
 
       <div className="container px-4 sm:px-6 lg:px-8 relative z-10 max-w-7xl mx-auto">
         <SectionHeading
@@ -258,23 +257,25 @@ export function ServicesSection() {
           className="mb-20"
         >
           <Tabs defaultValue="contable" className="w-full">
-            <div className="relative">
-              <div className="absolute -inset-x-4 sm:-inset-x-6  -bottom-2 h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
-              <TabsList className="flex pb-2 gap-2 bg-transparent font-josefin-sans justify-start sm:justify-center overflow-x-auto overflow-y-hidden flex-nowrap scroll-smooth px-1 sm:px-0">
-                {Object.entries(services).map(([key, { title, items }]) => {
-                  if (!title || !items) return null;
+            <div className="relative pb-4">
+              <div className="absolute -inset-x-4 sm:-inset-x-6 -bottom-2 h-0.5 bg-gradient-to-r from-transparent via-gray-200 to-transparent"></div>
+              <div className="relative w-full overflow-x-auto">
+                <TabsList className="flex py-3 gap-3 bg-transparent font-josefin-sans justify-start overflow-x-auto overflow-y-hidden flex-nowrap scroll-smooth w-max px-4 sm:w-full sm:justify-center">
+                  {Object.entries(services).map(([key, { title, items }]) => {
+                    if (!title || !items) return null;
 
-                  return (
-                    <TabsTrigger
-                      key={key}
-                      value={key}
-                      className="data-[state=active]:bg-[#364797] data-[state=active]:text-white data-[state=active]:shadow-md px-4 py-2  rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200 whitespace-nowrap"
-                    >
-                      {title}
-                    </TabsTrigger>
-                  );
-                })}
-              </TabsList>
+                    return (
+                      <TabsTrigger
+                        key={key}
+                        value={key}
+                        className="data-[state=active]:bg-[#364797] data-[state=active]:text-white data-[state=active]:shadow-md px-5 py-3 rounded-lg text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 transition-all duration-200 whitespace-nowrap flex-shrink-0 h-full min-w-max"
+                      >
+                        {title}
+                      </TabsTrigger>
+                    );
+                  })}
+                </TabsList>
+              </div>
             </div>
 
             <div className="mt-10">

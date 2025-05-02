@@ -1,5 +1,5 @@
 "use client"
-import { useState, useEffect, useCallback } from "react";
+import { useState,useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -7,7 +7,7 @@ import { ChevronRight, Menu, X } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger,SheetHeader,SheetTitle} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { VisuallyHidden } from "@radix-ui/react-visually-hidden";  // Import VisuallyHidden
+
 
 const SECTIONS = [
   "hero",
@@ -24,8 +24,6 @@ const NAV_LINKS = [
   { href: "#sobre-nosotras", label: "Sobre Nosotras" },
   { href: "#servicios", label: "Servicios" },
   { href: "#equipo", label: "Equipo" },
-  { href: "#testimonios", label: "Testimonios" },
-  { href: "#blog", label: "Blog" },
   { href: "#contacto", label: "Contacto" },
 ] as const;
 

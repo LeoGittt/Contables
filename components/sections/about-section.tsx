@@ -73,7 +73,7 @@ export function AboutSection() {
     <section
       ref={sectionRef}
       id="about-us"
-      className="bg-gradient-to-b from-white to-[#f9f5ff] py-24 overflow-hidden relative"
+      className="bg-white py-24 overflow-hidden relative"
     >
       {/* Decorativos */}
       <div className="absolute top-0 left-0 w-full h-32 bg-[#a17fb8]/10 blur-md -z-10" />
@@ -114,7 +114,7 @@ export function AboutSection() {
             className="relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl"
           >
             <Image
-              src="/contadoras.jpg"
+              src="/cont.jpg"
               alt="Equipo Aura"
               fill
               className="object-cover"

@@ -15,8 +15,8 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-white overflow-hidden">
-      {/* Fondo decorativo */}
+    <section className="relative mt-20 bg-white overflow-hidden">
+      
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 h-[500px] w-full bg-gradient-to-br from-[#BFDDFF]/20 via-white to-white" />
         <div className="absolute inset-0 h-full w-full bg-[linear-gradient(rgba(54,71,151,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(54,71,151,0.02)_1px,transparent_1px)] bg-[size:48px_48px]" />

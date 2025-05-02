@@ -15,10 +15,10 @@ export function ContactSection() {
       id="contacto"
       className="py-16 md:py-24 lg:py-32 relative overflow-hidden"
     >
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <div className="absolute top-0 right-0 w-64 h-64 bg-[#a17fb8]/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#364798]/10 rounded-full blur-3xl" />
-      </div>
+      </div> */}
 
       <div className="container px-4 md:px-6 relative z-10">
         <SectionHeading
