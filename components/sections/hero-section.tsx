@@ -34,7 +34,7 @@ export function HeroSection() {
               <span className="text-xs text-[#364797]">✦</span>
             </span>
             <span className="font-josefin text-[#364797] flex items-center gap-2">
-              <span>Impulsa tu negocio con contabilidad estratégica</span>
+              <span>Contabilidad que potencia tu empresa</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5 text-[#C8A0F2]"
