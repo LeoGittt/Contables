@@ -47,18 +47,7 @@ export function ServiceCard({ title, description, icon: Icon, gradient, classNam
             <Icon className="w-5 h-5" />
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: isHovered ? 1 : 0,
-              scale: isHovered ? 1 : 0.8,
-              y: isHovered ? 0 : 5,
-            }}
-            transition={{ duration: 0.2 }}
-            className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center"
-          >
-            <ArrowRight className="w-4 h-4 text-gray-600" />
-          </motion.div>
+          
         </div>
 
         <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-[#364797] transition-colors">
