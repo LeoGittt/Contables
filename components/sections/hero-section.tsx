@@ -16,7 +16,6 @@ export function HeroSection() {
 
   return (
     <section className="relative mt-1 sm:mt-16 md:mt-20  bg-white overflow-hidden">
-      
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 h-[500px] w-full bg-gradient-to-br from-[#BFDDFF]/20 via-white to-white" />
         <div className="absolute inset-0 h-full w-full bg-[linear-gradient(rgba(54,71,151,0.02)_1px,transparent_1px),linear-gradient(to_right,rgba(54,71,151,0.02)_1px,transparent_1px)] bg-[size:48px_48px]" />
@@ -35,19 +34,19 @@ export function HeroSection() {
               <span className="text-xs text-[#364797]">✦</span>
             </span>
             <span className="font-josefin text-[#364797]">
-            Contabilidad que potencia tu negocio
+              Contabilidad que potencia tu negocio
             </span>
           </div>
 
-          <h1 className="font-josefin text-3xl md:text-4xl font-medium text-[#364797] tracking-tight mb-4 leading-snug">
-            Simplificamos tu contabilidad
+          <h1 className="font-josefin text-2xl md:text-3xl font-medium text-[#364797] tracking-tight mb-4 leading-snug">
+            Gestión contable eficiente, decisiones respaldadas
             <br />
             <span className="bg-gradient-to-r from-[#364797] to-[#C8A0F2] bg-clip-text text-transparent">
-              para que crezcas sin límites
+              Optimiza procesos, impulsa resultados
             </span>
           </h1>
 
-          <p className="text-base md:text-lg text-gray-600 font-josefin mb-6 leading-relaxed">
+          <p className="text-base md:text-md text-gray-600 font-josefin mb-6 leading-relaxed">
             En Aura, transformamos los números en claridad. Brindamos soluciones
             contables personalizadas con un enfoque humano y cercano para
             impulsar tu negocio.
