@@ -1,9 +1,16 @@
-import Link from "next/link"
-import Image from "next/image"
-import { Instagram, MapPin, Mail, Phone, Facebook, Linkedin } from "lucide-react"
+import Link from "next/link";
+import Image from "next/image";
+import {
+  Instagram,
+  MapPin,
+  Mail,
+  Phone,
+  Facebook,
+  Linkedin,
+} from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t border-[#a17fb8]/10 pt-16 pb-8 bg-white relative overflow-hidden">
@@ -12,17 +19,17 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           <div className="space-y-4">
             <div className="relative h-10 w-32">
-              <Image 
-                src="/images/logo-principal-color.svg" 
-                alt="Aura Logo" 
-                fill 
+              <Image
+                src="/images/logo-principal-color.svg"
+                alt="Aura Logo"
+                fill
                 className="object-contain"
                 priority
               />
             </div>
             <p className="text-sm text-gray-500 max-w-xs">
-              Asesoría contable con calidez y claridad para emprendedores y pymes. Transformamos la experiencia contable
-              tradicional.
+              Asesoría contable con calidez y claridad para emprendedores y
+              pymes. Transformamos la experiencia contable tradicional.
             </p>
             <div className="flex gap-3">
               <Link
@@ -43,23 +50,23 @@ export function Footer() {
               >
                 <Facebook className="h-4 w-4 text-[#364798]" />
               </Link>
-              
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-medium text-[#364798] mb-4">Enlaces rápidos</h3>
+            <h3 className="text-sm font-medium text-[#364798] mb-4">
+              Enlaces rápidos
+            </h3>
             <ul className="space-y-3">
               {[
                 { href: "#sobre-nosotras", text: "Sobre Nosotras" },
                 { href: "#servicios", text: "Servicios" },
                 { href: "#equipo", text: "Equipo" },
-        
                 { href: "#contacto", text: "Contacto" },
               ].map((link) => (
                 <li key={link.href}>
-                  <Link 
-                    href={link.href} 
+                  <Link
+                    href={link.href}
                     className="text-sm text-gray-500 hover:text-[#a17fb8] transition-colors"
                   >
                     {link.text}
@@ -70,11 +77,15 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-medium text-[#364798] mb-4">Contacto</h3>
+            <h3 className="text-sm font-medium text-[#364798] mb-4">
+              Contacto
+            </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-2">
                 <MapPin className="h-4 w-4 text-[#a17fb8] mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-gray-500">Rivadavia 10190 oeste, Capital</span>
+                <span className="text-sm text-gray-500">
+                  Rivadavia 10190 oeste, Capital
+                </span>
               </li>
               <li className="flex items-start gap-2">
                 <Phone className="h-4 w-4 text-[#a17fb8] mt-0.5 flex-shrink-0" />
@@ -82,14 +93,20 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Mail className="h-4 w-4 text-[#a17fb8] mt-0.5 flex-shrink-0" />
-                <span className="text-sm text-gray-500">aura.asesoriacontable@gmail.com</span>
+                <span className="text-sm text-gray-500">
+                  aura.asesoriacontable@gmail.com
+                </span>
               </li>
             </ul>
-            <div className="mt-6">
-              <h4 className="text-xs font-medium text-[#364798] mb-2">Horario de atención</h4>
-              <p className="text-xs text-gray-500">Lunes a Viernes: 9:00 - 18:00</p>
+            {/* <div className="mt-6">
+              <h4 className="text-xs font-medium text-[#364798] mb-2">
+                Horario de atención
+              </h4>
+              <p className="text-xs text-gray-500">
+                Lunes a Viernes: 9:00 - 18:00
+              </p>
               <p className="text-xs text-gray-500">Sábados: 9:00 - 13:00</p>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -97,7 +114,8 @@ export function Footer() {
         <div className="mt-10 pt-8 border-t border-[#a17fb8]/10">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-xs text-gray-500 mb-4 md:mb-0">
-              &copy; {currentYear} Aura Asesoría Contable. Todos los derechos reservados.
+              &copy; {currentYear} Aura Asesoría Contable. Todos los derechos
+              reservados.
             </p>
             <div className="flex gap-4">
               {[
@@ -105,9 +123,9 @@ export function Footer() {
                 { href: "#", text: "Política de Privacidad" },
                 { href: "#", text: "Cookies" },
               ].map((link) => (
-                <Link 
+                <Link
                   key={link.text}
-                  href={link.href} 
+                  href={link.href}
                   className="text-xs text-gray-500 hover:text-[#a17fb8] transition-colors"
                 >
                   {link.text}
@@ -115,8 +133,18 @@ export function Footer() {
               ))}
             </div>
           </div>
+
+          {/* Créditos */}
+          <div className="mt-4 text-center text-xs text-gray-500">
+            <p>
+              Desarrollado por{" "}
+              <strong>
+                <Link href="https://port-iota-three.vercel.app/">Leonel</Link>
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
