@@ -1,17 +1,20 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { JSX } from "react";
 
 interface SectionHeadingProps {
-  badge: string
+  badge: JSX.Element;
   title: string
   description: string
   centered?: boolean
+  className?: string;  
+  bg?: string;
 }
 
-export function SectionHeading({ badge, title, description, centered = true }: SectionHeadingProps) {
+export function SectionHeading({ badge, title, description, centered = true, className }: SectionHeadingProps) {
   return (
-    <div className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} mb-12`}>
+    <div className={`flex flex-col ${centered ? "items-center text-center" : "items-start text-left"} mb-12 ${className}`}>
       <motion.div
         className="inline-flex items-center rounded-full border border-aura-purple bg-white/50 px-3 py-1 text-sm text-aura-blue mb-4"
         initial={{ opacity: 0, y: 10 }}

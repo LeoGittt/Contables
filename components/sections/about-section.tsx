@@ -1,199 +1,177 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { Star, Award, Users, Heart, ChevronRight } from "lucide-react"
-import { motion, useInView } from "framer-motion"
-import { SectionHeading } from "@/components/ui-custom/section-heading"
+import { JSX, useRef } from "react";
+import Image from "next/image";
+import { motion, useInView } from "framer-motion";
+import { SectionHeading } from "@/components/ui-custom/section-heading";
+import {
+  Star, Award, Users, Heart, Sparkles, Lightbulb, Handshake, Flame
+} from "lucide-react";
+
+type CoreItem = {
+  icon: JSX.Element;
+  title: string;
+  description: string;
+  bg?: string;
+};
 
 export function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null)
-  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" });
+
+  const visionMission: CoreItem[] = [
+    {
+      icon: <Star className="w-5 h-5 text-white" />,
+      title: "Misión",
+      description:
+        "En Aura Asesoría Contable somos un grupo de amigas que unimos nuestras pasiones y conocimientos para ofrecer un servicio contable profesional, claro y cercano. Nuestra misión es transformar la manera en que los emprendedores y pymes viven la gestión de sus negocios: con confianza, simplicidad y soluciones innovadoras. Queremos que te sientas acompañado, entendido y libre para crecer.",
+      bg: "bg-gradient-to-br from-[#7d5d96] to-[#a17fb8]",
+    },
+    {
+      icon: <Award className="w-5 h-5 text-white" />,
+      title: "Visión",
+      description:
+        "Revolucionar la forma de hacer asesoría contable en Argentina, siendo un equipo de referencia por nuestra calidez humana, creatividad y compromiso real con cada cliente. Soñamos con ser elegidas por quienes buscan algo distinto: un espacio profesional, dinámico y transparente, donde los números hablan claro y las personas importan.",
+      bg: "bg-gradient-to-br from-[#364798] to-[#2a3a7a]",
+    },
+  ];
+
+  const valores: CoreItem[] = [
+    {
+      icon: <Handshake className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Confianza real",
+      description: "Vínculos auténticos y transparentes.",
+    },
+    {
+      icon: <Sparkles className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Claridad ante todo",
+      description: "Lenguaje simple para lo complejo.",
+    },
+    {
+      icon: <Heart className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Calidez profesional",
+      description: "Te escuchamos y entendemos.",
+    },
+    {
+      icon: <Lightbulb className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Innovación constante",
+      description: "Herramientas creativas y actuales.",
+    },
+    {
+      icon: <Users className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Cercanía humana",
+      description: "Trabajamos en equipo con vos.",
+    },
+    {
+      icon: <Flame className="w-5 h-5 text-[#a17fb8]" />,
+      title: "Pasión compartida",
+      description: "Lo que hacemos nos apasiona.",
+    },
+  ];
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="about-us" 
-      className="py-24 bg-gradient-to-b from-white to-[#f9f5ff] relative overflow-hidden"
+    <section
+      ref={sectionRef}
+      id="about-us"
+      className="bg-gradient-to-b from-white to-[#f9f5ff] py-24 overflow-hidden relative"
     >
-      {/* Elementos decorativos */}
-      <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-[#a17fb8]/10 to-transparent -z-0" />
-      <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-[#a17fb8]/10 blur-3xl -z-0" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#364798]/10 blur-3xl -z-0" />
+      {/* Decorativos */}
+      <div className="absolute top-0 left-0 w-full h-32 bg-[#a17fb8]/10 blur-md -z-10" />
+      <div className="absolute -top-20 -right-32 w-72 h-72 rounded-full bg-[#364798]/10 blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#7d5d96]/10 blur-3xl -z-10" />
 
-      <div className="container px-4 md:px-6 relative z-10">
+      <div className="container px-4 md:px-6 max-w-7xl">
+        {/* Logo decorativo */}
+        <div className="flex justify-center mb-8">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.6 }}
+            className="w-14 h-14 rounded-full bg-[#a17fb8]/5 flex items-center justify-center"
+          >
+            <Image src="/images/logo-variante-azul.png" alt="Aura logo" width={50} height={50} />
+          </motion.div>
+        </div>
+
         <SectionHeading
           badge={
-            <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#a17fb8]/10 rounded-full text-[#a17fb8]">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#a17fb8]/10 rounded-full text-[#a17fb8] text-sm">
               <Star className="w-4 h-4" />
               Sobre Nosotras
             </span>
           }
-          title="Transformando la contabilidad con corazón"
-          description="Somos un equipo apasionado que reinventa la experiencia contable, combinando expertise profesional con un trato humano y cercano."
+          title="Más que números, somos un equipo con alma"
+          description="Unimos profesionalismo, empatía y tecnología para acompañarte en tu crecimiento con claridad y confianza."
         />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-28">
+        {/* Imagen + Misión/Visión */}
+        <div className="grid md:grid-cols-2 gap-10 mt-16 items-start">
+          {/* Imagen */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl"
           >
-            <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-xl group">
-              <Image 
-                src="/images/team-photo.jpg" 
-                alt="Equipo Aura" 
-                fill 
-                className="object-cover transition-transform duration-700 group-hover:scale-105" 
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="bg-white/90 backdrop-blur-sm p-6 rounded-xl shadow-sm">
-                  <h3 className="text-xl font-bold text-[#364798] mb-2">Contabilidad con rostro humano</h3>
-                  <p className="text-gray-600">Donde los números encuentran calidez y profesionalismo</p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="space-y-8"
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            <div className="space-y-4">
-              <h3 className="text-3xl font-bold text-[#364798]">Nuestra esencia</h3>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                En Aura, hemos creado un espacio donde la contabilidad deja de ser un requisito tedioso para convertirse en una herramienta clara y poderosa para tu negocio.
+            <Image
+              src="/contadoras.jpg"
+              alt="Equipo Aura"
+              fill
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+            <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md max-w-xs">
+              <h3 className="text-md font-bold text-[#364798]">Un equipo con propósito</h3>
+              <p className="text-gray-600 text-sm mt-1">
+                Nos une algo más que la profesión: la pasión por acompañar con claridad y calidez.
               </p>
             </div>
-
-            <div className="grid gap-6">
-              {[
-                {
-                  icon: <Star className="h-6 w-6 text-[#a17fb8]" />,
-                  title: "Misión",
-                  description: "Simplificar lo complejo. Hacer accesible lo técnico. Brindar soluciones contables que realmente sumen valor.",
-                },
-                {
-                  icon: <Award className="h-6 w-6 text-[#a17fb8]" />,
-                  title: "Visión",
-                  description: "Ser el referente en contabilidad humana, donde cada cliente se siente comprendido y acompañado.",
-                },
-                {
-                  icon: <Users className="h-6 w-6 text-[#a17fb8]" />,
-                  title: "Filosofía",
-                  description: "Creemos en relaciones profesionales basadas en confianza, transparencia y crecimiento mutuo.",
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.3 + i * 0.1 }}
-                  className="flex gap-4 p-6 bg-white rounded-xl border border-[#e6d5f1] hover:shadow-md transition-all"
-                >
-                  <div className="bg-[#a17fb8]/10 p-3 rounded-lg flex-shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-semibold text-[#a17fb8] mb-2">{item.title}</h4>
-                    <p className="text-gray-600">{item.description}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
-        </div>
 
-        <div className="mb-28">
-          <motion.h3 
-            className="text-3xl font-bold text-center text-[#364798] mb-16"
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ delay: 0.4 }}
-          >
-            <span className="relative inline-block">
-              Lo que nos diferencia
-              <span className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-[#a17fb8] to-[#364798]" />
-            </span>
-          </motion.h3>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Enfoque personalizado",
-                description: "Soluciones a medida para cada cliente, porque entendemos que cada negocio es único.",
-                icon: <Heart className="h-6 w-6 text-white" />,
-                bg: "bg-gradient-to-br from-[#a17fb8] to-[#7d5d96]",
-              },
-              {
-                title: "Tecnología amigable",
-                description: "Herramientas digitales intuitivas que simplifican tu gestión contable.",
-                icon: <Star className="h-6 w-6 text-white" />,
-                bg: "bg-gradient-to-br from-[#364798] to-[#2a3a7a]",
-              },
-              {
-                title: "Comunicación clara",
-                description: "Explicaciones sencillas, sin jerga técnica innecesaria.",
-                icon: <Users className="h-6 w-6 text-white" />,
-                bg: "bg-gradient-to-br from-[#7d5d96] to-[#364798]",
-              },
-            ].map((item, i) => (
+          {/* Misión y Visión */}
+          <div className="space-y-6">
+            {visionMission.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.5 + i * 0.1 }}
-                className="group"
+                transition={{ delay: 0.3 + i * 0.1 }}
+                className={`${item.bg} p-5 md:p-6 rounded-2xl text-white font-josefin-sans shadow-lg`}
               >
-                <Card className="border-0 overflow-hidden shadow-lg hover:shadow-xl transition-all h-full">
-                  <div className={`${item.bg} h-48 flex items-center justify-center`}>
-                    <div className="bg-white/20 p-4 rounded-full backdrop-blur-sm group-hover:rotate-12 transition-transform">
-                      {item.icon}
-                    </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-[#364798] mb-3">{item.title}</h3>
-                    <p className="text-gray-600 mb-4">{item.description}</p>
-                    <button className="flex items-center text-[#a17fb8] font-medium hover:underline">
-                      Conocer más <ChevronRight className="h-4 w-4 ml-1" />
-                    </button>
-                  </CardContent>
-                </Card>
+                <div className="bg-white/20 p-2 rounded-full inline-block mb-2">{item.icon}</div>
+                <h4 className="text-lg font-semibold">{item.title}</h4>
+                <p className="text-white/90 text-sm leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-[#364798] to-[#a17fb8] rounded-3xl p-8 md:p-12 text-white overflow-hidden relative">
-          <div className="absolute -right-20 -top-20 w-64 h-64 rounded-full bg-white/10 blur-xl -z-0" />
-          <div className="absolute -left-10 -bottom-10 w-48 h-48 rounded-full bg-white/10 blur-xl -z-0" />
-          
-          <motion.div
-            className="relative z-10"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.6 }}
-          >
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">¿Listo para una nueva experiencia contable?</h3>
-            <p className="text-white/90 mb-8 max-w-2xl text-lg">
-              Descubre cómo podemos transformar la gestión de tus números en una experiencia clara, humana y enriquecedora.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button className="bg-white text-[#364798] px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors">
-                Contactar ahora
-              </button>
-              <button className="bg-transparent border-2 border-white px-6 py-3 rounded-full font-bold hover:bg-white/10 transition-colors">
-                Conocer al equipo
-              </button>
-            </div>
-          </motion.div>
+        {/* Valores */}
+        <motion.h3
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ delay: 0.4 }}
+          className="text-center text-2xl md:text-3xl font-bold text-[#364798] mt-24 mb-10"
+        >
+          Nuestros valores
+        </motion.h3>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {valores.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.5 + i * 0.1 }}
+              className="bg-white border border-[#e6d5f1] font-josefin-sans rounded-2xl p-5 shadow-sm hover:shadow-md transition-all"
+            >
+              <div className="mb-3">{item.icon}</div>
+              <h4 className="text-base font-semibold text-[#a17fb8] mb-1">{item.title}</h4>
+              <p className="text-gray-600 text-sm leading-snug">{item.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
