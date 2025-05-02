@@ -15,7 +15,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative mt-20 bg-white overflow-hidden">
+    <section className="relative mt-1 sm:mt-16 md:mt-20  bg-white overflow-hidden">
       
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-0 h-[500px] w-full bg-gradient-to-br from-[#BFDDFF]/20 via-white to-white" />
