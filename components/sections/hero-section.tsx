@@ -33,8 +33,22 @@ export function HeroSection() {
             <span className="mr-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#FFF3AE]">
               <span className="text-xs text-[#364797]">✦</span>
             </span>
-            <span className="font-josefin text-[#364797]">
-              Contabilidad que potencia tu negocio
+            <span className="font-josefin text-[#364797] flex items-center gap-2">
+              <span>Impulsa tu negocio con contabilidad estratégica</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-[#C8A0F2]"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 12l5 5L20 7"
+                />
+              </svg>
             </span>
           </div>
 
