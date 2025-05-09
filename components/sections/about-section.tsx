@@ -24,7 +24,7 @@ export function AboutSection() {
       icon: <Star className="w-5 h-5 text-white" />,
       title: "Misión",
       description:
-        "En Aura Asesoría Contable somos un grupo de amigas que unimos nuestras pasiones y conocimientos para ofrecer un servicio contable profesional, claro y cercano. Nuestra misión es transformar la manera en que los emprendedores y pymes viven la gestión de sus negocios: con confianza, simplicidad y soluciones innovadoras. Queremos que te sientas acompañado, entendido y libre para crecer.",
+        "En Aura Asesoría Contable somos un grupo de amigas que unimos nuestras pasiones y conocimientos para ofrecer un servicio contable profesional, claro y cercano. Nuestra misión es transformar la manera en que los emprendedores y PYMEs viven la gestión de sus negocios: con confianza, simplicidad y soluciones innovadoras. Queremos que te sientas acompañado, entendido y libre para crecer.",
       bg: "bg-gradient-to-br from-[#7d5d96] to-[#a17fb8]",
     },
     {

@@ -3,17 +3,16 @@
 import { useRef } from "react"
 import { motion, useInView } from "framer-motion"
 import { SectionHeading } from "@/components/ui-custom/section-heading"
-import { ArrowRight } from "lucide-react"
+
 
 export function TeamSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
 
   const teamMembers = [
-    { name: "CPN Cintia Martinez", role: "Contadora Pública Nacional" },
-    { name: "CPN Laila Barud", role: "Contadora Pública Nacional" }, 
-    { name: "Lic. Laura Más", role: "Licenciada en Contaduría" },
-    { name: "CPN Valeria Regalado", role: "Contadora Pública Nacional" }
+    { name: "CP Cintia Martinez", role: "Contadora Pública" },
+    { name: "CP Laila Barud", role: "Contadora Pública" }, 
+    { name: "EGC Valeria Regalado", role: "Ejecutiva en Gestión Contable" }
   ]
 
   // Colores pastel para los avatares
@@ -39,7 +38,7 @@ export function TeamSection() {
         />
 
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6"
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.6 }}
