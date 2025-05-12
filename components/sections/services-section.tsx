@@ -5,9 +5,8 @@ import type React from "react"
 import { useRef } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { motion, useInView } from "framer-motion"
-import { ServiceCard } from "@/components/ui/service-card"
-import { SectionHeading } from "@/components/ui-custom/section-heading"
 import { Button } from "@/components/ui/button"
+import { SectionHeading } from "@/components/ui-custom/section-heading"
 import Link from "next/link"
 import {
   BarChart3,
@@ -39,23 +38,25 @@ import {
   ExternalLink,
 } from "lucide-react"
 
-// Service category type definition for better type safety
+// Tipos
+type ServiceItem = {
+  title: string
+  description: string
+  icon: React.ElementType
+  gradientFrom: string
+  gradientTo: string
+}
+
 type ServiceCategory = {
   title: string
-  items: {
-    title: string
-    description: string
-    icon: React.ElementType
-    gradientFrom: string
-    gradientTo: string
-  }[]
+  items: ServiceItem[]
 }
 
 export function ServicesSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: "-100px 0px" })
 
-  // Services data organized by category
+  // Datos de servicios organizados por categoría con los colores originales
   const services: Record<string, ServiceCategory> = {
     contable: {
       title: "Contable y Financiera",
@@ -76,7 +77,7 @@ export function ServicesSection() {
         },
         {
           title: "Análisis financiero",
-          description: "Recopilación de datos, interpretaciones de indicadores y evaluación de resultados.",
+          description: "Interpretación de indicadores, evaluación de resultados y proyección.",
           icon: Calculator,
           gradientFrom: "#C8A0F2",
           gradientTo: "#BFDDFF",
@@ -109,7 +110,7 @@ export function ServicesSection() {
         },
         {
           title: "Responsable Inscripto",
-          description: "Inscripciones en ARCA y Rentas, Convenio Multilateral – declaraciones juradas.",
+          description: "Inscripciones en ARCA y Rentas, Convenio Multilateral – declaraciones juradas",
           icon: ClipboardList,
           gradientFrom: "#FFBEDD",
           gradientTo: "#FFF3AE",
@@ -222,7 +223,7 @@ export function ServicesSection() {
         },
         {
           title: "Habilitaciones",
-          description: "ARCA – DGR – Organismos reguladores – Municipalidades.",
+          description: "ARCA – DGR – Organismos reguladores – Municipalidades",
           icon: CheckCircle,
           gradientFrom: "#C8A0F2",
           gradientTo: "#BFDDFF",
@@ -271,7 +272,7 @@ export function ServicesSection() {
     },
   }
 
-  // Animation variants for staggered animations
+  // Variantes de animación
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -294,7 +295,7 @@ export function ServicesSection() {
       className="py-24 md:py-32 bg-white relative overflow-hidden"
       aria-labelledby="services-heading"
     >
-      {/* Background decoration */}
+      {/* Decoración de fondo con los colores originales */}
       <div className="absolute top-0 right-0 -z-10 w-1/3 h-1/3 bg-gradient-to-bl from-[#C8A0F2]/10 to-transparent rounded-bl-full" />
       <div className="absolute bottom-0 left-0 -z-10 w-1/3 h-1/3 bg-gradient-to-tr from-[#BFDDFF]/10 to-transparent rounded-tr-full" />
 
@@ -312,7 +313,7 @@ export function ServicesSection() {
           className="mb-20"
         >
           <Tabs defaultValue="contable" className="w-full">
-            {/* Tabs navigation with sticky behavior on scroll */}
+            {/* Navegación de pestañas con colores originales */}
             <div className="sticky top-20 z-10 bg-white/95 backdrop-blur-sm border-b border-gray-200 mb-8 py-2 shadow-sm">
               <TabsList className="flex gap-3 bg-transparent font-josefin-sans w-full max-w-full overflow-x-auto px-2 justify-start md:justify-center scrollbar-hide">
                 {Object.entries(services).map(([key, { title }]) => (
@@ -327,9 +328,9 @@ export function ServicesSection() {
               </TabsList>
             </div>
 
-            {/* Tab content with staggered animations */}
+            {/* Contenido de pestañas con tarjetas de altura fija */}
             {Object.entries(services).map(([key, { items }]) => (
-              <TabsContent key={key} value={key}>
+              <TabsContent key={key} value={key} className="focus-visible:outline-none focus-visible:ring-0">
                 <motion.div
                   variants={containerVariants}
                   initial="hidden"
@@ -338,15 +339,7 @@ export function ServicesSection() {
                 >
                   {items.map((service, index) => (
                     <motion.div key={index} variants={itemVariants} className="h-full">
-                      <ServiceCard
-                        title={service.title}
-                        description={service.description}
-                        icon={service.icon}
-                        gradientFrom={service.gradientFrom}
-                        gradientTo={service.gradientTo}
-                        className="h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                        index={index}
-                      />
+                      <ServiceCard service={service} index={index} />
                     </motion.div>
                   ))}
                 </motion.div>
@@ -355,7 +348,7 @@ export function ServicesSection() {
           </Tabs>
         </motion.div>
 
-        {/* CTA Section with enhanced design */}
+        {/* Sección CTA con colores originales */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={isInView ? { opacity: 1, scale: 1 } : {}}
@@ -421,5 +414,45 @@ export function ServicesSection() {
         </motion.div>
       </div>
     </section>
+  )
+}
+
+// Componente de tarjeta de servicio con altura fija para descripciones y colores originales
+function ServiceCard({ service, index }: { service: ServiceItem; index: number }) {
+  const Icon = service.icon
+
+  return (
+    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 h-full border border-gray-100 group">
+      <div className="p-6 flex flex-col h-full">
+        {/* Icono con gradiente de colores originales */}
+        <div className="mb-5">
+          <div
+            className="w-12 h-12 rounded-lg flex items-center justify-center"
+            style={{
+              background: `linear-gradient(135deg, ${service.gradientFrom}, ${service.gradientTo})`,
+            }}
+          >
+            <Icon className="h-6 w-6 text-white" />
+          </div>
+        </div>
+
+        <h3 className="text-lg font-semibold text-gray-800 mb-3">{service.title}</h3>
+
+        {/* Contenedor de altura fija para descripciones */}
+        <div className="min-h-[80px] mb-4">
+          <p className="text-gray-600">{service.description}</p>
+        </div>
+
+        <div className="mt-auto pt-4 border-t border-gray-100">
+          <Link
+            href="#contacto"
+            className="inline-flex items-center text-sm font-medium text-[#C8A0F2] hover:text-[#364797] group/link"
+          >
+            Solicitar información
+            <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover/link:translate-x-1" />
+          </Link>
+        </div>
+      </div>
+    </div>
   )
 }

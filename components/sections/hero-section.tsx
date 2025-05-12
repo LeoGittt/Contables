@@ -117,7 +117,7 @@ export default function HeroSection() {
             <div className="relative bg-white rounded-xl sm:rounded-2xl p-2 sm:p-3 md:p-4 shadow-md sm:shadow-lg border border-[#FFBEDD]/20">
               <div className="relative overflow-hidden rounded-lg sm:rounded-xl">
                 <Image
-                  src="/logop.jpg"
+                  src="/logo.jpg"
                   alt="Logo Aura"
                   width={320}
                   height={320}
