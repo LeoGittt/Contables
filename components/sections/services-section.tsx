@@ -386,7 +386,6 @@ export function ServicesSection() {
                   { name: "Consultoría empresarial", href: "#servicios" },
                   { name: "Soluciones fiscales", href: "#servicios" },
                   { name: "Contacto", href: "#contacto" },
-                  { name: "Preguntas frecuentes", href: "#faq" },
                   { name: "Solicitar presupuesto", href: "#contacto" },
                 ].map((link, index) => (
                   <li key={index}>
