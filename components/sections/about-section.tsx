@@ -114,7 +114,7 @@ export function AboutSection() {
             className="relative h-[320px] md:h-[420px] rounded-3xl overflow-hidden shadow-xl"
           >
             <Image
-              src="/cont.jpg"
+              src="/perfil/eq.jpg"
               alt="Equipo Aura"
               fill
               className="object-cover"
