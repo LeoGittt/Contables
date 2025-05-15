@@ -16,8 +16,8 @@ export default function Home() {
       <Header/>
       <HeroSection />
       <ServicesSection />
-      <AboutSection />
       <TeamSection />
+      <AboutSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton phoneNumber="5492645834384" />

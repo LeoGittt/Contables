@@ -121,7 +121,7 @@ export function AboutSection() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md max-w-xs">
-              <h3 className="text-md font-bold text-[#364798]">Un equipo con propósito</h3>
+              <h3 className="text-sm font-bold text-[#364798]">Un equipo con propósito</h3>
               <p className="text-gray-600 text-sm mt-1">
                 Nos une algo más que la profesión: la pasión por acompañar con claridad y calidez.
               </p>
