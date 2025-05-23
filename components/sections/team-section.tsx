@@ -146,7 +146,10 @@ export default function TeamSectionGrid() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col h-full"
             >
-              <div className="bg-white rounded-xl shadow-lg border border-white/30 overflow-hidden h-full flex flex-col hover:shadow-xl transition-shadow duration-300">
+              <div
+                className="bg-white rounded-2xl shadow-lg border border-white/30 overflow-hidden h-full flex flex-col hover:shadow-2xl transition-shadow duration-300 group relative"
+                style={{ borderBottom: `4px solid ${member.accentColor}` }}
+              >
                 {/* Imagen del miembro */}
                 <div className="relative aspect-[3/2] group">
                   <Image
@@ -156,20 +159,21 @@ export default function TeamSectionGrid() {
                     className="object-cover transition-all duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  {/* Eliminado el nombre sobre la imagen para evitar redundancia */}
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none rounded-t-2xl"
+                    style={{
+                      background: `linear-gradient(to top, ${member.accentColor}33 0%, transparent 100%)`,
+                    }}
+                  />
                 </div>
-
-                {/* Información del miembro */}
-                <div className="p-5 flex-grow flex flex-col">
-                  <div className="flex flex-col items-center mb-3">
-                    <h3 className="text-lg font-semibold font-josefin-sans text-[#364797] text-center">
-                      {member.name}
-                    </h3>
-                    <p className="text-sm font-semibold text-[#C8A0F2] text-center">
-                      {member.role}
-                    </p>
-                  </div>
-                  <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C8A0F2] to-transparent my-3"></div>
+                {/* Solo nombre y rol */}
+                <div className="p-6 flex flex-col items-center justify-center flex-grow">
+                  <h3 className="text-lg font-bold font-josefin-sans text-[#364797] text-center">
+                    {member.name}
+                  </h3>
+                  <p className="text-sm font-semibold text-[#C8A0F2] text-center">
+                    {member.role}
+                  </p>
                 </div>
               </div>
             </motion.div>
