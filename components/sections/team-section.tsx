@@ -1,31 +1,39 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion } from "framer-motion"
-import Image from "next/image"
-import { Mail, Phone, Linkedin, Calendar, Briefcase, MapPin, Clock } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import Image from "next/image";
+import {
+  Mail,
+  Phone,
+  Linkedin,
+  Calendar,
+  Briefcase,
+  MapPin,
+  Clock,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function TeamSectionGrid() {
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   interface TeamMember {
-    name: string
-    role: string
-    image: string
-    experience: string
-    specialty: string
-    location: string
-    availability: string
-    bio: string
-    achievements: string[]
+    name: string;
+    role: string;
+    image: string;
+    experience: string;
+    specialty: string;
+    location: string;
+    availability: string;
+    bio: string;
+    achievements: string[];
     contact: {
-      email: string
-      phone: string
-      linkedin: string
-    }
-    accentColor: string,
-    abre:string
+      email: string;
+      phone: string;
+      linkedin: string;
+    };
+    accentColor: string;
+    abre: string;
   }
 
   const teamMembers: TeamMember[] = [
@@ -49,7 +57,7 @@ export default function TeamSectionGrid() {
         linkedin: "/in/cintia-martinez",
       },
       accentColor: "#364797",
-      abre: "C.M" // Azul oscuro
+      abre: "C.M", // Azul oscuro
     },
     {
       name: "Laila Barud",
@@ -71,7 +79,7 @@ export default function TeamSectionGrid() {
         linkedin: "/in/laila-barud",
       },
       accentColor: "#C8A0F2",
-       abre: "L.B" // Lila claro
+      abre: "L.B", // Lila claro
     },
     {
       name: "Valeria Regalado",
@@ -93,12 +101,14 @@ export default function TeamSectionGrid() {
         linkedin: "/in/valeria-regalado",
       },
       accentColor: "#FFBEDD",
-       abre: "V.R" // Rosa claro
+      abre: "V.R", // Rosa claro
     },
-  ]
+  ];
 
   return (
-    <section ref={containerRef} className="relative py-16 "> {/* Fondo azul claro */}
+    <section ref={containerRef} className="relative py-16 ">
+      {" "}
+      {/* Fondo azul claro */}
       {/* Encabezado elegante y compacto */}
       <div className="container mx-auto px-4 mb-10">
         <motion.div
@@ -108,16 +118,22 @@ export default function TeamSectionGrid() {
           transition={{ duration: 0.6 }}
           className="text-center"
         >
-          <h2 className="text-2xl md:text-3xl  font-semibold text-[#364797] mb-3 font-josefin-sans"> {/* Texto azul oscuro */}
-            Nuestro <span className="font-semibold font-josefin-sans">Team</span>
+          <h2 className="text-2xl md:text-3xl  font-semibold text-[#364797] mb-3 font-josefin-sans">
+            {" "}
+            {/* Texto azul oscuro */}
+            Nuestro{" "}
+            <span className="font-semibold font-josefin-sans">Team</span>
           </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-[#C8A0F2] to-[#FFBEDD] mx-auto mb-3 rounded-full"></div> {/* Degradado lila a rosa */}
-          <p className="text-[#364797]/80 max-w-lg mx-auto text-sm font-semibold"> {/* Texto azul oscuro con opacidad */}
-            Profesionales dedicados a brindarte soluciones contables precisas y personalizadas.
+          <div className="w-16 h-1 bg-gradient-to-r from-[#C8A0F2] to-[#FFBEDD] mx-auto mb-3 rounded-full"></div>{" "}
+          {/* Degradado lila a rosa */}
+          <p className="text-[#364797]/80 max-w-lg mx-auto text-sm font-semibold">
+            {" "}
+            {/* Texto azul oscuro con opacidad */}
+            Profesionales dedicados a brindarte soluciones contables precisas y
+            personalizadas.
           </p>
         </motion.div>
       </div>
-
       {/* Grid de miembros del equipo */}
       <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -140,74 +156,20 @@ export default function TeamSectionGrid() {
                     className="object-cover transition-all duration-700 group-hover:scale-105"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  {/* <div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(to top, ${member.accentColor}88 0%, ${member.accentColor}22 50%, transparent 100%)`,
-                    }}
-                  /> */}
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    
-                    <h3 className="text-sm text-gray-200 font-semibold font-josefin-sans ">{member.name}</h3>
-                  </div>
+                  {/* Eliminado el nombre sobre la imagen para evitar redundancia */}
                 </div>
 
                 {/* Información del miembro */}
                 <div className="p-5 flex-grow flex flex-col">
-                  <div className="flex justify-between items-start mb-3">
-                    <div>
-                      <h3 className="text-lg font-semibold font-josefin-sans text-[#364797]">{member.name}</h3>
-                      <p className="text-sm font-semibold text-[#C8A0F2]">
-                        {member.role}
-                      </p>
-                    </div>
-                    <div className="flex space-x-1.5">
-                      <a
-                        href={`mailto:${member.contact.email}`}
-                        className="p-1.5 rounded-full bg-[#C8A0F2] text-gray-50 hover:bg-[#FFF3AE]/90 transition-colors duration-200 border border-[#FFF3AE]/50 shadow-sm"
-                        aria-label={`Enviar email a ${member.name}`}
-                      >
-                        <Mail className="h-4 w-4" />
-                      </a>
-                      <a
-                        href={`tel:${member.contact.phone}`}
-                        className="p-1.5 rounded-full bg-[#C8A0F2] text-gray-50 hover:bg-[#FFF3AE]/90 transition-colors duration-200 border border-[#FFF3AE]/50 shadow-sm"
-                        aria-label={`Llamar a ${member.name}`}
-                      >
-                        <Phone className="h-4 w-4" />
-                      </a>
-                      <a
-                        href={`https://linkedin.com${member.contact.linkedin}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-full bg-[#C8A0F2] text-gray-50 hover:bg-[#FFF3AE]/90 transition-colors duration-200 border border-[#FFF3AE]/50 shadow-sm"
-                        aria-label={`LinkedIn de ${member.name}`}
-                      >
-                        <Linkedin className="h-4 w-4" />
-                      </a>
-                    </div>
+                  <div className="flex flex-col items-center mb-3">
+                    <h3 className="text-lg font-semibold font-josefin-sans text-[#364797] text-center">
+                      {member.name}
+                    </h3>
+                    <p className="text-sm font-semibold text-[#C8A0F2] text-center">
+                      {member.role}
+                    </p>
                   </div>
-
                   <div className="h-px w-full bg-gradient-to-r from-transparent via-[#C8A0F2] to-transparent my-3"></div>
-
-                  <p className="text-[#364797]/90 text-sm mb-3 line-clamp-3 font-josefin-sans">{member.bio}</p>
-
-                  <div className="grid grid-cols-1 gap-2 mb-4 text-xs">
-                    <div className="flex items-center p-2 rounded-lg bg-[#FFF3AE]/30 border border-[#FFF3AE]/50">
-                      <Briefcase className="h-4 w-4 mr-2 text-[#364797]" />
-                      <span className="text-[#364797]">+ experiencia</span>
-                    </div>
-                    <div className="flex items-center p-2 rounded-lg bg-[#FFBEDD]/30 border border-[#FFBEDD]/50">
-                      <MapPin className="h-4 w-4 mr-2 text-[#364797]" />
-                      <span className="text-[#364797]">{member.location}</span>
-                    </div>
-                    <div className="flex items-center p-2 rounded-lg bg-[#C8A0F2]/30 border border-[#C8A0F2]/50">
-                      <Clock className="h-4 w-4 mr-2 text-[#364797]" />
-                      <span className="text-[#364797]">{member.availability}</span>
-                    </div>
-                  </div>
-
-                 
                 </div>
               </div>
             </motion.div>
@@ -215,5 +177,5 @@ export default function TeamSectionGrid() {
         </div>
       </div>
     </section>
-  )
+  );
 }

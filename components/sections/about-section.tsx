@@ -5,7 +5,14 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import { SectionHeading } from "@/components/ui-custom/section-heading";
 import {
-  Star, Award, Users, Heart, Sparkles, Lightbulb, Handshake, Flame
+  Star,
+  Award,
+  Users,
+  Heart,
+  Sparkles,
+  Lightbulb,
+  Handshake,
+  Flame,
 } from "lucide-react";
 
 type CoreItem = {
@@ -89,7 +96,12 @@ export function AboutSection() {
             transition={{ duration: 0.6 }}
             className="w-14 h-14 rounded-full bg-[#a17fb8]/5 flex items-center justify-center"
           >
-            <Image src="/images/logo-variante-azul.png" alt="Aura logo" width={50} height={50} />
+            <Image
+              src="/images/logo-variante-azul.png"
+              alt="Aura logo"
+              width={50}
+              height={50}
+            />
           </motion.div>
         </div>
 
@@ -120,10 +132,13 @@ export function AboutSection() {
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-            <div className="absolute bottom-5 left-5 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-md max-w-xs">
-              <h3 className="text-sm font-bold text-[#364798]">Un equipo con propósito</h3>
-              <p className="text-gray-600 text-sm mt-1">
-                Nos une algo más que la profesión: la pasión por acompañar con claridad y calidez.
+            <div className="absolute top-2 left-2 sm:bottom-5 sm:left-5 sm:top-auto bg-white/90 backdrop-blur-sm px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-xl shadow-md max-w-[110px] sm:max-w-[180px]">
+              <h3 className="text-[10px] sm:text-xs font-bold text-[#364798]">
+                Un equipo con propósito
+              </h3>
+              <p className="hidden sm:block text-gray-600 text-xs mt-0.5">
+                Nos une algo más que la profesión: la pasión por acompañar con
+                claridad y calidez.
               </p>
             </div>
           </motion.div>
@@ -138,9 +153,13 @@ export function AboutSection() {
                 transition={{ delay: 0.3 + i * 0.1 }}
                 className={`${item.bg} p-5 md:p-6 rounded-2xl text-white font-josefin-sans shadow-lg`}
               >
-                <div className="bg-white/20 p-2 rounded-full inline-block mb-2">{item.icon}</div>
+                <div className="bg-white/20 p-2 rounded-full inline-block mb-2">
+                  {item.icon}
+                </div>
                 <h4 className="text-lg font-semibold">{item.title}</h4>
-                <p className="text-white/90 text-sm leading-relaxed">{item.description}</p>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  {item.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -166,8 +185,12 @@ export function AboutSection() {
               className="bg-white border border-[#e6d5f1] font-josefin-sans rounded-2xl p-5 shadow-sm hover:shadow-md transition-all"
             >
               <div className="mb-3">{item.icon}</div>
-              <h4 className="text-base font-semibold text-[#a17fb8] mb-1">{item.title}</h4>
-              <p className="text-gray-600 text-sm leading-snug">{item.description}</p>
+              <h4 className="text-base font-semibold text-[#a17fb8] mb-1">
+                {item.title}
+              </h4>
+              <p className="text-gray-600 text-sm leading-snug">
+                {item.description}
+              </p>
             </motion.div>
           ))}
         </div>
